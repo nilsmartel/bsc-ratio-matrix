@@ -50,10 +50,10 @@ class TableMatrix:
 
             for col in self.cols:
                 value = self.get(row, col)
-                if i is None:
+                if value is None:
                     s += "  |"
                 else:
-                    s += str(i) + " |"
+                    s += str(value) + " |"
 
         return s
 
