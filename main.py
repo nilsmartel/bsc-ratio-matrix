@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from file import Info
 from table import TableMatrix
 
@@ -5,6 +7,13 @@ import os
 import sys
 
 args = sys.argv[1:]
+
+if "--help" in args:
+    print("""ratio matrix <args>
+            where args: list of csv files of type "mem"
+            (e.g. containing scheme cells; bytes; insert_duration_nanosec)
+            """)
+    exit(0)
 
 fileinfos = map(Info, args)
 
