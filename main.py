@@ -32,14 +32,12 @@ def read_last_line(filename):
 
     file = open(filename, "r")
     lines = file.readlines()
-    print(f"   lines len {len(lines)}")
     file.close()
 
     lastline = None
     # accept up to 20 lines of blank spaces at the end
     for i in range(20):
         lastline = lines[-1]
-        print(f"   line: {lastline}    {filename}")
         if len(lastline.split(";")) == 3:
             break
         lines.pop()
@@ -47,7 +45,6 @@ def read_last_line(filename):
     return lastline
 
 def split_csv(line: str, sep=";"):
-    print(f"   split_csv('{line}')")
     return line.split(sep)
 
 def col_bytes(csv: list[str]):
@@ -58,7 +55,6 @@ def col_bytes(csv: list[str]):
 bytes_per_file = dict()
 
 for file in fileinfos:
-    print("    " + file.filename)
     size_in_bytes = int(col_bytes(split_csv(read_last_line(file.filename))))
 
     # nice, we have the size in bytes
@@ -86,8 +82,8 @@ for (count, table),v in bytes_per_file.items():
 
     for (row,bytes) in v:
         for (col,bytes2) in v:
-            ration = bytes / bytes2
-            matrix.set(row, col, value)
+            ratio = bytes / bytes2
+            matrix.set(row, col, ratio)
 
     matrices[(count, table)] = matrix
 
