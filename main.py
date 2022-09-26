@@ -87,7 +87,7 @@ for (count, table),v in bytes_per_file.items():
 
     matrices[(count, table)] = matrix
 
-for (count, table), m in matrices:
+for (count, table), m in matrices.items():
     filename = f"{count}--{table}.md"
     f = open(filename, 'w')
     f.write(m.markdown())
