@@ -33,7 +33,7 @@ def read_last_line(filename):
     lastline = None
     # accept up to 20 lines of blank spaces at the end
     for i in range(20):
-        lastline = file.readlines()[-1]
+        lastline = file.readlines()[-i]
         if len(lastline.split(";")) == 3:
             break
 
