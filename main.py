@@ -54,7 +54,7 @@ bytes_per_file = dict()
 
 for file in fileinfos:
     print("    " + file.filename)
-    size_in_bytes = col_bytes(split_csv(read_last_line(file.filename)))
+    size_in_bytes = int(col_bytes(split_csv(read_last_line(file.filename))))
 
     # nice, we have the size in bytes
 
@@ -65,6 +65,7 @@ for file in fileinfos:
     # GROUPED BY (COUNT, TABLE)
     if (file.count, file.table) not in bytes_per_file:
         bytes_per_file[(file.count, file.table)] = list()
+
     bytes_per_file[(file.count, file.table)].append((file.algo, size_in_bytes))
 
 # (count, table) => Matrix(algo x algo => compression rate)
