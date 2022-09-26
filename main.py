@@ -43,7 +43,7 @@ def read_last_line(filename):
 
 def split_csv(line: str, sep=";"):
     print(f"   split_csv('{line}')")
-    line.split(sep)
+    return line.split(sep)
 
 def col_bytes(csv: list[str]):
     cells, bytes, insert_duration_nanosec = csv
