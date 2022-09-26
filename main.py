@@ -42,6 +42,7 @@ def read_last_line(filename):
     return lastline
 
 def split_csv(line: str, sep=";"):
+    print(f"   split_csv('{line}')")
     line.split(sep)
 
 def col_bytes(csv: list[str]):
