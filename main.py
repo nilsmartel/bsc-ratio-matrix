@@ -32,7 +32,7 @@ def read_last_line(filename):
 
     file = open(filename, "r")
     lines = file.readlines()
-    print("   lines len {len(lines)}")
+    print(f"   lines len {len(lines)}")
     file.close()
 
     lastline = None
