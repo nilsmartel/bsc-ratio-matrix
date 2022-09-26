@@ -29,16 +29,18 @@ fileinfos = list(filter(lambda i: i.kind == "mem", fileinfos))
 # no need for pandas or anything fancy. we will just grab the last section
 
 def read_last_line(filename):
+
     file = open(filename, "r")
-    lastline = None
     lines = file.readlines()
+    file.close()
+
+    lastline = None
     # accept up to 20 lines of blank spaces at the end
     for i in range(20):
         lastline = lines[-i]
         if len(lastline.split(";")) == 3:
             break
-
-    file.close()
+        print(f"   {lastline}    {filename}")
 
     return lastline
 
