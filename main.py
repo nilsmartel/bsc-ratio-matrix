@@ -63,8 +63,9 @@ for file in fileinfos:
     # A SET OF MATRICES (bytesSize x byteSize)
 
     # GROUPED BY (COUNT, TABLE)
-
-    bytes_per_file[(file.count, file.table)] = (file.algo, size_in_bytes)
+    if (file.count, file.table) not in bytes_per_file:
+        bytes_per_file[(file.count, file.table)] = list()
+    bytes_per_file[(file.count, file.table)].append((file.algo, size_in_bytes))
 
 # (count, table) => Matrix(algo x algo => compression rate)
 matrices = dict()
