@@ -53,6 +53,7 @@ def col_bytes(csv: list[str]):
 bytes_per_file = dict()
 
 for file in fileinfos:
+    print("    " + filename)
     size_in_bytes = col_bytes(split_csv(read_last_line(file.filename)))
 
     # nice, we have the size in bytes
