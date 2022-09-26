@@ -31,9 +31,10 @@ fileinfos = list(filter(lambda i: i.kind == "mem", fileinfos))
 def read_last_line(filename):
     file = open(filename, "r")
     lastline = None
+    lines = file.readlines()
     # accept up to 20 lines of blank spaces at the end
     for i in range(20):
-        lastline = file.readlines()[-i]
+        lastline = lines[-i]
         if len(lastline.split(";")) == 3:
             break
 
